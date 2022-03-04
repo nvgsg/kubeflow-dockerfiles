@@ -1,0 +1,11 @@
+FROM nvcr.io/nvidia/digits:21.09-tensorflow-py3
+
+ENV DIGITS_ROOT=/home/jovyan
+ENV DIGITS_JOBS_DIR=/home/jovyan/digits/jobs
+ENV DIGITS_LOGFILE_FILENAME=/home/jovyan/digits/digits.log
+
+WORKDIR /home/jovyan
+
+ENTRYPOINT ["/bin/sh"]
+
+CMD ["-c", "DIGITS_URL_PREFIX=${NB_PREFIX} python -m digits -p 8888"]
